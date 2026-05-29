@@ -1,19 +1,7 @@
-from azure.identity import DefaultAzureCredential
-from azure.ai.projects import AIProjectClient
-from dotenv import load_dotenv
-import os
+from helper.ai_start import get_openai_client_and_deployment
 
-load_dotenv()
+openai_client, deployment_name = get_openai_client_and_deployment()
 
-project_endpoint = os.environ.get("AZURE_AI_PROJECT_ENDPOINT")
-deployment_name = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
-
-project_client = AIProjectClient(
-    credential=DefaultAzureCredential(),
-    endpoint=project_endpoint
-)
-
-openai_client = project_client.get_openai_client()
 print("Bob: Enter a fucking prompt mate ( or tyoe 'quit' if your scared)")
 while True:
     input_text = input('\nYou: ')
