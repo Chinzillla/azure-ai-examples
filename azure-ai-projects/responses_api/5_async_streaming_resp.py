@@ -1,5 +1,5 @@
-from helper.ai_start import get_async_openai_client_and_deployment
 import asyncio
+from helper.ai_start import get_async_openai_client_and_deployment
 
 async def stream_response():
     async with get_async_openai_client_and_deployment() as (openai_client, deployment_name):
